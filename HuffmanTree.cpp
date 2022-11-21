@@ -51,9 +51,9 @@ void HuffmanTree::FillTree(BinaryHeap& minHeap)
 
 void HuffmanTree::PrintTree() const
 {
-	if (!root)
-	{
-		cerr << "The Tree is Empty" << endl;
+    if (!root)
+    {
+	cerr << "The Tree is Empty" << endl;
         return;
     }
 
@@ -198,7 +198,7 @@ void HuffmanTree::PrintCodesHelper(HNode*& subtree, int arr[], int top)
 		cout << "       " << subtree->item << "     |    ";
 		for (int i = 0; i < top; i++)
 		{
-			cout << arr[i];
+		    cout << arr[i];
 		}
 		cout << endl;
 	}
@@ -285,11 +285,11 @@ HuffmanTree& HuffmanTree::operator=(const HuffmanTree& rightTree)
     if(this != &rightTree)
     {
         if(root != NULL)
-			DestroyHelper(root);
-		if(rightTree.root == NULL)
-			root = NULL;
-		else
-			CopyHelper(root, rightTree.root);
+	    DestroyHelper(root);
+	if(rightTree.root == NULL)
+	    root = NULL;
+	else
+	    CopyHelper(root, rightTree.root);
     }
     return *this;	
 }

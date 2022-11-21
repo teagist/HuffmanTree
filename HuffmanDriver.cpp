@@ -221,8 +221,8 @@ void fillHeap(string message, int occur[], BinaryHeap& BHeap)
 
 	for (int i = 0; i < message.size(); i++)
 	{
-        occur[message[i] - 'a']++;
-    }
+            occur[message[i] - 'a']++;
+        }
 	
 	while (ctr < message.size())			 
 	{

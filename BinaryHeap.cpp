@@ -53,7 +53,7 @@ void BinaryHeap::InsertHelper(HNode* newNode)
 	
 	for (int i = 0; i < size + 1; i++)
 	{
-		temp[i] = heap[i];
+	    temp[i] = heap[i];
 	}
 		
 	size = size + 1;
@@ -64,15 +64,15 @@ void BinaryHeap::InsertHelper(HNode* newNode)
 	// bubble sort
 	for (int i = 0; i < size - 1; i++)
 	{
-		for (int j = 0; j < size - 1; j++)
+	    for (int j = 0; j < size - 1; j++)
+	    {
+		if (heap[j]->freq > heap[j + 1]->freq)
 		{
-			if (heap[j]->freq > heap[j + 1]->freq)
-			{
-				HNode* temp = heap[j];
-				heap[j] = heap[j + 1];
-				heap[j + 1] = temp;
-			}
+			HNode* temp = heap[j];
+			heap[j] = heap[j + 1];
+			heap[j + 1] = temp;
 		}
+	    }
 	}
 	
 	Heapify(size-1);
@@ -94,7 +94,7 @@ void BinaryHeap::Delete()
 	HNode **temp = (HNode**)malloc(100 * sizeof(HNode*));
 	for (int i = 1; i < size; i++)
 	{
-		temp[i-1]= heap[i];
+	    temp[i-1]= heap[i];
 	}
 	
 	size = size - 1;
@@ -119,7 +119,7 @@ void BinaryHeap::Clear()
 {
 	for (int i = 0; i < size; i++)
 	{
-		delete[] heap[i];
+	    delete[] heap[i];
 	}
 	heap = NULL;
 }
@@ -141,7 +141,7 @@ void BinaryHeap::Print() const
 	
 	for (int i = 0; i < size; i++)
 	{
-		cout << heap[i]->item << " | " << heap[i]->freq << endl;
+	    cout << heap[i]->item << " | " << heap[i]->freq << endl;
 	}
 	
 	cout << endl << endl;
@@ -161,15 +161,15 @@ HNode* BinaryHeap::GetMin()
 {
 	if (size > 0)
 	{
-		HNode* temp = heap[0];
-		heap[0] = heap[size - 1];
-		size = size - 1;
+	    HNode* temp = heap[0];
+	    heap[0] = heap[size - 1];
+	    size = size - 1;
 		
-		Heapify(0);
-		return temp;
+	    Heapify(0);
+	    return temp;
 	}
 	else
-		return NULL;
+	    return NULL;
 }
 
 
@@ -191,20 +191,20 @@ void BinaryHeap::Heapify(int in)
 
 	if (leftV < size && heap[leftV]->freq < heap[smallest]->freq)
 	{
-		smallest = leftV;
+	    smallest = leftV;
 	}
 	
 	if (rightV < size && heap[rightV]->freq < heap[smallest]->freq)
 	{		
-		smallest = rightV;
+	    smallest = rightV;
 	}
 		
 	HNode* temp = NULL;
 		
 	if (smallest != in)
 	{
-		temp = heap[smallest];
-		heap[smallest] = heap[in];
-		heap[in] = temp;
+	    temp = heap[smallest];
+	    heap[smallest] = heap[in];
+	    heap[in] = temp;
 	}	
 }
